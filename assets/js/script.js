@@ -5,13 +5,25 @@ var getLocationKey = function(location) {
   var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
   
   fetch(apiUrl).then(function(response) {
-    response.json().then(function(data) {
-      getCurrentWeather(data[0].lat, data[0].lon);
-      getForecast(data[0].lat, data[0].lon);
-    });
+    if (response.ok) {
+      response.json().then(function(data) {
+        if (data.length === 0) {
+          alert("Error: City not found");
+        } else {
+          getCurrentWeather(data[0].lat, data[0].lon);
+          getForecast(data[0].lat, data[0].lon);
+        }
+      });
+    }
+
+    else {
+      alert("Error: City not found");
+    }
+  })
+  .catch(function(error) {
+    alert("Unable to connect");
   });
 };
-
 
 var formSubmitHandler = function(event) {
   event.preventDefault();
@@ -35,6 +47,9 @@ var getCurrentWeather = function(lat, lon) {
     response.json().then(function(data) {
       console.log(data);
     });
+  })
+  .catch(function(error) {
+    alert("Unable to connect");
   });
 };
 
@@ -45,6 +60,9 @@ var getForecast = function(lat, lon) {
     response.json().then(function(data) {
       console.log(data);
     });
+  })
+  .catch(function(error) {
+    alert("Unable to connect");
   });
 }
 
