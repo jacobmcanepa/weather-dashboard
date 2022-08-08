@@ -15,6 +15,7 @@ var getLocationKey = function(location) {
         if (data.length === 0) {
           alert("Error: City not found");
         } else {
+          infoSectionEl.innerHTML = "";
           getCurrentWeather(data[0].lat, data[0].lon);
           //getForecast(data[0].lat, data[0].lon);
         }
