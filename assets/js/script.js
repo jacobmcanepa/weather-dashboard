@@ -82,10 +82,32 @@ var getCurrentWeather = function(lat, lon) {
       fetch(uvUrl, {headers: {"x-access-token": uvApiKey}}).then(function(response) {
         response.json().then(function(data) {
           console.log(data);
-    
           var uvIndexEl = document.createElement("li");
-          uvIndexEl.innerHTML = "UV Index: <span class='bg-primary text-center text-light px-3 py-1'>" + data.result.uv + "</span>";
-          listEl.appendChild(uvIndexEl); 
+
+          if (data.result.uv <= 3) {
+            uvIndexEl.innerHTML = "UV Index: <span class='uv-low text-center text-light px-3 py-1 rounded'>" + data.result.uv + "</span>";
+            listEl.appendChild(uvIndexEl); 
+          }
+
+          else if (data.result.uv <= 6) {
+            uvIndexEl.innerHTML = "UV Index: <span class='uv-mod text-center text-light px-3 py-1 rounded'>" + data.result.uv + "</span>";
+            listEl.appendChild(uvIndexEl); 
+          }
+
+          else if (data.result.uv <= 8) {
+            uvIndexEl.innerHTML = "UV Index: <span class='uv-high text-center text-light px-3 py-1 rounded'>" + data.result.uv + "</span>";
+            listEl.appendChild(uvIndexEl); 
+          }
+
+          else if (data.result.uv <= 11) {
+            uvIndexEl.innerHTML = "UV Index: <span class='uv-vhigh text-center text-light px-3 py-1 rounded'>" + data.result.uv + "</span>";
+            listEl.appendChild(uvIndexEl); 
+          }
+
+          else if (data.result.uv > 11) {
+            uvIndexEl.innerHTML = "UV Index: <span class='uv-extr text-center text-light px-3 py-1 rounded'>" + data.result.uv + "</span>";
+            listEl.appendChild(uvIndexEl); 
+          }
         });
       })
       .catch(function(error) {

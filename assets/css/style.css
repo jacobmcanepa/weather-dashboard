@@ -12,3 +12,23 @@
 .bottom-border {
   border-bottom: 2px solid black;
 }
+
+.uv-low {
+  background-color: #558b2f;
+}
+
+.uv-mod {
+  background-color: #f9a825;
+}
+
+.uv-high {
+  background-color: #ef6c00;
+}
+
+.uv-vhigh {
+  background-color: #b71c1c;
+}
+
+.uv-extr {
+  background-color: #6a1b9a;
+}
