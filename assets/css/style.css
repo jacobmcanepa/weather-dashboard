@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 .test-border {
   border: 5px solid black;
@@ -31,4 +32,12 @@
 
 .uv-extr {
   background-color: #6a1b9a;
+}
+
+.info-list-top {
+  font-size: 20px;
+}
+
+.w-98 {
+  width: 98%;
 }

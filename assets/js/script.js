@@ -56,27 +56,31 @@ var getCurrentWeather = function(lat, lon) {
       console.log(data);
 
       var containerEl = document.createElement("div");
-      containerEl.classList = "container my-1";
+      containerEl.classList = "container mt-3";
     
       var rowEl = document.createElement("div");
-      rowEl.className = "row";
+      rowEl.classList = "row border border-dark w-98";
     
       var colEl = document.createElement("div");
       colEl.className = "col-12";
+      colEl.innerHTML = "<h2 class='mt-1 font-weight-bold'>" + data.name + " (" + dt.month + "/" + dt.day + "/" + dt.year + ")</h2>";
     
       var listEl = document.createElement("ul");
       listEl.setAttribute("style", "list-style: none;");
-      colEl.innerHTML = "<h2>" + data.name + " (" + dt.month + "/" + dt.day + "/" + dt.year + ")</h2>";
+      listEl.className = "pl-0";
 
       var tempEl = document.createElement("li");
+      tempEl.classList = "pb-2 info-list-top";
       tempEl.textContent = "Temp: " + Math.floor(data.main.temp) + "F";
       listEl.appendChild(tempEl);
 
       var windEl = document.createElement("li");
+      windEl.classList = "pb-2 info-list-top";
       windEl.textContent = "Wind: " + data.wind.speed + " MPH";
       listEl.appendChild(windEl);
 
       var humidityEl = document.createElement("li");
+      humidityEl.classList = "pb-2 info-list-top";
       humidityEl.textContent = "Humidity: " + data.main.humidity + "%";
       listEl.appendChild(humidityEl);
 
@@ -84,6 +88,7 @@ var getCurrentWeather = function(lat, lon) {
         response.json().then(function(data) {
           console.log(data);
           var uvIndexEl = document.createElement("li");
+          uvIndexEl.classList = "pb-2 info-list-top";
 
           if (data.result.uv <= 3) {
             uvIndexEl.innerHTML = "UV Index: <span class='uv-low text-center text-light px-3 py-1 rounded'>" + data.result.uv + "</span>";
@@ -112,7 +117,8 @@ var getCurrentWeather = function(lat, lon) {
         });
       })
       .catch(function(error) {
-        uvIndexEl.textContent = "UV Index: Unable to connect";
+        uvIndexEl.innerHTML = "UV Index: Unable to connect";
+        listEl.appendChild(uvIndexEl);
       });
 
       colEl.appendChild(listEl);
