@@ -140,7 +140,7 @@ var getForecast = function(lat, lon) {
       var rowEl = document.createElement("div");
       rowEl.classList = "row mt-3";
 
-      // day one forecast
+      /* DAY ONE */
       var dayOneDiv = document.createElement("div");
       dayOneDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
@@ -154,7 +154,14 @@ var getForecast = function(lat, lon) {
       dayOneList.appendChild(dayOneDate);
 
       var dayOneIcon = document.createElement("li");
-      var icon1 ="http://openweathermap.org/img/wn/" + data.list[6].weather[0].icon + ".png";
+      // filter icon to day time
+      var firstIcon = data.list[6].weather[0].icon;
+      var firstArray = firstIcon.split("");
+      firstArray.pop();
+      firstArray.push("d");
+      var filteredIcon1 = firstArray.join("");
+      // end of filter
+      var icon1 ="http://openweathermap.org/img/wn/" + filteredIcon1 + ".png";
       dayOneIcon.innerHTML = "<img src='" + icon1 + "' alt='icon' />";
       dayOneList.appendChild(dayOneIcon);
 
@@ -177,7 +184,7 @@ var getForecast = function(lat, lon) {
       rowEl.appendChild(dayOneDiv);
       // end day one forecast
 
-      // day two forecast
+      /* DAY TWO */
       var dayTwoDiv = document.createElement("div");
       dayTwoDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
@@ -191,7 +198,14 @@ var getForecast = function(lat, lon) {
       dayTwoList.appendChild(dayTwoDate);
 
       var dayTwoIcon = document.createElement("li");
-      var icon2 ="http://openweathermap.org/img/wn/" + data.list[14].weather[0].icon + ".png";
+      // filter icon to day time
+      var secondIcon = data.list[14].weather[0].icon;
+      var secondArray = secondIcon.split("");
+      secondArray.pop();
+      secondArray.push("d");
+      var filteredIcon2 = secondArray.join("");
+      // end of filter
+      var icon2 ="http://openweathermap.org/img/wn/" + filteredIcon2 + ".png";
       dayTwoIcon.innerHTML = "<img src='" + icon2 + "' alt='icon' />";
       dayTwoList.appendChild(dayTwoIcon);
 
@@ -214,7 +228,7 @@ var getForecast = function(lat, lon) {
       rowEl.appendChild(dayTwoDiv);
       // end day two forecast
 
-      // day three forecast
+      /* DAY THREE */
       var dayThreeDiv = document.createElement("div");
       dayThreeDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
@@ -228,7 +242,14 @@ var getForecast = function(lat, lon) {
       dayThreeList.appendChild(dayThreeDate);
 
       var dayThreeIcon = document.createElement("li");
-      var icon3 ="http://openweathermap.org/img/wn/" + data.list[22].weather[0].icon + ".png";
+      // filter icon to day time
+      var thirdIcon = data.list[22].weather[0].icon;
+      var thirdArray = thirdIcon.split("");
+      thirdArray.pop();
+      thirdArray.push("d");
+      var filteredIcon3 = thirdArray.join("");
+      // end of filter
+      var icon3 ="http://openweathermap.org/img/wn/" + filteredIcon3 + ".png";
       dayThreeIcon.innerHTML = "<img src='" + icon3 + "' alt='icon' />";
       dayThreeList.appendChild(dayThreeIcon);
 
@@ -251,7 +272,7 @@ var getForecast = function(lat, lon) {
       rowEl.appendChild(dayThreeDiv);
       // end day three forecast
 
-      // day four forecast
+      /* DAY FOUR */
       var dayFourDiv = document.createElement("div");
       dayFourDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
@@ -265,7 +286,14 @@ var getForecast = function(lat, lon) {
       dayFourList.appendChild(dayFourDate);
 
       var dayFourIcon = document.createElement("li");
-      var icon4 ="http://openweathermap.org/img/wn/" + data.list[30].weather[0].icon + ".png";
+      // filter icon to day time
+      var fourthIcon = data.list[30].weather[0].icon;
+      var fourthArray = fourthIcon.split("");
+      fourthArray.pop();
+      fourthArray.push("d");
+      var filteredIcon4 = fourthArray.join("");
+      // end of filter
+      var icon4 ="http://openweathermap.org/img/wn/" + filteredIcon4 + ".png";
       dayFourIcon.innerHTML = "<img src='" + icon4 + "' alt='icon' />";
       dayFourList.appendChild(dayFourIcon);
 
@@ -288,7 +316,7 @@ var getForecast = function(lat, lon) {
       rowEl.appendChild(dayFourDiv);
       // end day four forecast
 
-      // day five forecast
+      /* DAY FIVE */
       var dayFiveDiv = document.createElement("div");
       dayFiveDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
@@ -302,7 +330,14 @@ var getForecast = function(lat, lon) {
       dayFiveList.appendChild(dayFiveDate);
 
       var dayFiveIcon = document.createElement("li");
-      var icon5 ="http://openweathermap.org/img/wn/" + data.list[38].weather[0].icon + ".png";
+      // filter icon to day time
+      var fifthIcon = data.list[38].weather[0].icon;
+      var fifthArray = fifthIcon.split("");
+      fifthArray.pop();
+      fifthArray.push("d");
+      var filteredIcon5 = fifthArray.join("");
+      // end of filter
+      var icon5 ="http://openweathermap.org/img/wn/" + filteredIcon5 + ".png";
       dayFiveIcon.innerHTML = "<img src='" + icon5 + "' alt='icon' />";
       dayFiveList.appendChild(dayFiveIcon);
 
