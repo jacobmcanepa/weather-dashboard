@@ -138,17 +138,19 @@ var getForecast = function(lat, lon) {
       bottomContainerEl.innerHTML = "<h3>5 Day Forecast:</h3>";
 
       var rowEl = document.createElement("div");
-      rowEl.className = "row"
+      rowEl.classList = "row mt-3";
 
       // day one forecast
       var dayOneDiv = document.createElement("div");
-      dayOneDiv.classList = "col mx-1 text-light bg-primary";
+      dayOneDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
       var dayOneList = document.createElement("ul");
       dayOneList.setAttribute("style", "list-style: none;");
+      dayOneList.classList = "pl-0 mt-3";
 
       var dayOneDate = document.createElement("li");
-      dayOneDate.innerHTML = "(" + dt.month + "/" + (dt.day + 1) + "/" + dt.year + ")";
+      dayOneDate.className = "text-bold";
+      dayOneDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 1) + "/" + dt.year + ")</h4>";
       dayOneList.appendChild(dayOneDate);
 
       var dayOneIcon = document.createElement("li");
@@ -157,14 +159,17 @@ var getForecast = function(lat, lon) {
       dayOneList.appendChild(dayOneIcon);
 
       var dayOneTemp = document.createElement("li");
+      dayOneTemp.className = "forecast-list";
       dayOneTemp.innerHTML = "Temp: " + Math.floor(data.list[6].main.temp) + "F";
       dayOneList.appendChild(dayOneTemp);
 
       var dayOneWind = document.createElement("li");
+      dayOneWind.className = "forecast-list";
       dayOneWind.innerHTML = "Wind: " + data.list[6].wind.speed + " MPH";
       dayOneList.appendChild(dayOneWind);
 
       var dayOneHumidity = document.createElement("li");
+      dayOneHumidity.className = "forecast-list";
       dayOneHumidity.innerHTML = "Humidity: " + data.list[6].main.humidity + "%";
       dayOneList.appendChild(dayOneHumidity);
  
@@ -174,13 +179,15 @@ var getForecast = function(lat, lon) {
 
       // day two forecast
       var dayTwoDiv = document.createElement("div");
-      dayTwoDiv.classList = "col mx-1 text-light bg-primary";
+      dayTwoDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
       var dayTwoList = document.createElement("ul");
       dayTwoList.setAttribute("style", "list-style: none;");
+      dayTwoList.classList = "pl-0 mt-3";
 
       var dayTwoDate = document.createElement("li");
-      dayTwoDate.innerHTML = "(" + dt.month + "/" + (dt.day + 2) + "/" + dt.year + ")";
+      dayTwoDate.className = "text-bold";
+      dayTwoDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 2) + "/" + dt.year + ")</h4>";
       dayTwoList.appendChild(dayTwoDate);
 
       var dayTwoIcon = document.createElement("li");
@@ -189,14 +196,17 @@ var getForecast = function(lat, lon) {
       dayTwoList.appendChild(dayTwoIcon);
 
       var dayTwoTemp = document.createElement("li");
+      dayTwoTemp.className = "forecast-list";
       dayTwoTemp.innerHTML = "Temp: " + Math.floor(data.list[14].main.temp) + "F";
       dayTwoList.appendChild(dayTwoTemp);
 
       var dayTwoWind = document.createElement("li");
+      dayTwoWind.className = "forecast-list";
       dayTwoWind.innerHTML = "Wind: " + data.list[14].wind.speed + " MPH";
       dayTwoList.appendChild(dayTwoWind);
 
       var dayTwoHumidity = document.createElement("li");
+      dayTwoHumidity.className = "forecast-list";
       dayTwoHumidity.innerHTML = "Humidity: " + data.list[14].main.humidity + "%";
       dayTwoList.appendChild(dayTwoHumidity);
  
@@ -206,13 +216,15 @@ var getForecast = function(lat, lon) {
 
       // day three forecast
       var dayThreeDiv = document.createElement("div");
-      dayThreeDiv.classList = "col mx-1 text-light bg-primary";
+      dayThreeDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
       var dayThreeList = document.createElement("ul");
+      dayThreeList.classList = "pl-0 mt-3";
       dayThreeList.setAttribute("style", "list-style: none;");
 
       var dayThreeDate = document.createElement("li");
-      dayThreeDate.innerHTML = "(" + dt.month + "/" + (dt.day + 3) + "/" + dt.year + ")";
+      dayThreeDate.className = "text-bold";
+      dayThreeDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 3) + "/" + dt.year + ")</h4>";
       dayThreeList.appendChild(dayThreeDate);
 
       var dayThreeIcon = document.createElement("li");
@@ -221,14 +233,17 @@ var getForecast = function(lat, lon) {
       dayThreeList.appendChild(dayThreeIcon);
 
       var dayThreeTemp = document.createElement("li");
+      dayThreeTemp.className = "forecast-list";
       dayThreeTemp.innerHTML = "Temp: " + Math.floor(data.list[22].main.temp) + "F";
       dayThreeList.appendChild(dayThreeTemp);
 
       var dayThreeWind = document.createElement("li");
+      dayThreeWind.className = "forecast-list";
       dayThreeWind.innerHTML = "Wind: " + data.list[22].wind.speed + " MPH";
       dayThreeList.appendChild(dayThreeWind);
 
       var dayThreeHumidity = document.createElement("li");
+      dayThreeHumidity.className = "forecast-list";
       dayThreeHumidity.innerHTML = "Humidity: " + data.list[22].main.humidity + "%";
       dayThreeList.appendChild(dayThreeHumidity);
  
@@ -238,13 +253,15 @@ var getForecast = function(lat, lon) {
 
       // day four forecast
       var dayFourDiv = document.createElement("div");
-      dayFourDiv.classList = "col mx-1 text-light bg-primary";
+      dayFourDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
       var dayFourList = document.createElement("ul");
+      dayFourList.classList = "pl-0 mt-3";
       dayFourList.setAttribute("style", "list-style: none;");
 
       var dayFourDate = document.createElement("li");
-      dayFourDate.innerHTML = "(" + dt.month + "/" + (dt.day + 4) + "/" + dt.year + ")";
+      dayFourDate.className = "text-bolder";
+      dayFourDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 4) + "/" + dt.year + ")</h4>";
       dayFourList.appendChild(dayFourDate);
 
       var dayFourIcon = document.createElement("li");
@@ -253,14 +270,17 @@ var getForecast = function(lat, lon) {
       dayFourList.appendChild(dayFourIcon);
 
       var dayFourTemp = document.createElement("li");
+      dayFourTemp.className = "forecast-list";
       dayFourTemp.innerHTML = "Temp: " + Math.floor(data.list[30].main.temp) + "F";
       dayFourList.appendChild(dayFourTemp);
 
       var dayFourWind = document.createElement("li");
+      dayFourWind.className = "forecast-list";
       dayFourWind.innerHTML = "Wind: " + data.list[30].wind.speed + " MPH";
       dayFourList.appendChild(dayFourWind);
 
       var dayFourHumidity = document.createElement("li");
+      dayFourHumidity.className = "forecast-list";
       dayFourHumidity.innerHTML = "Humidity: " + data.list[30].main.humidity + "%";
       dayFourList.appendChild(dayFourHumidity);
  
@@ -270,13 +290,15 @@ var getForecast = function(lat, lon) {
 
       // day five forecast
       var dayFiveDiv = document.createElement("div");
-      dayFiveDiv.classList = "col mx-1 text-light bg-primary";
+      dayFiveDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
 
       var dayFiveList = document.createElement("ul");
+      dayFiveList.classList = "pl-0 mt-3";
       dayFiveList.setAttribute("style", "list-style: none;");
 
       var dayFiveDate = document.createElement("li");
-      dayFiveDate.innerHTML = "(" + dt.month + "/" + (dt.day + 5) + "/" + dt.year + ")";
+      dayFiveDate.className = "text-bolder";
+      dayFiveDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 5) + "/" + dt.year + ")</h4>";
       dayFiveList.appendChild(dayFiveDate);
 
       var dayFiveIcon = document.createElement("li");
@@ -285,14 +307,17 @@ var getForecast = function(lat, lon) {
       dayFiveList.appendChild(dayFiveIcon);
 
       var dayFiveTemp = document.createElement("li");
+      dayFiveTemp.className = "forecast-list";
       dayFiveTemp.innerHTML = "Temp: " + Math.floor(data.list[38].main.temp) + "F";
       dayFiveList.appendChild(dayFiveTemp);
 
       var dayFiveWind = document.createElement("li");
+      dayFiveWind.className = "forecast-list";
       dayFiveWind.innerHTML = "Wind: " + data.list[38].wind.speed + " MPH";
       dayFiveList.appendChild(dayFiveWind);
 
       var dayFiveHumidity = document.createElement("li");
+      dayFiveHumidity.className = "forecast-list";
       dayFiveHumidity.innerHTML = "Humidity: " + data.list[38].main.humidity + "%";
       dayFiveList.appendChild(dayFiveHumidity);
  
