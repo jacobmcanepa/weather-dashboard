@@ -9,6 +9,12 @@ var buttonListEl = document.querySelector("#button-list");
 var mainEl = document.querySelector("main");
 var saved = JSON.parse(localStorage.getItem("saved")) || [];
 
+var loadEvents = function() {
+  for (var i = 0; i < saved.length; i++) {
+    createButton(saved[i]);
+  }
+};
+
 var getLocationKey = function(location) {
   var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
   
@@ -51,6 +57,8 @@ var formSubmitHandler = function(event) {
   if (location) {
     getLocationKey(location);
     createButton(buttonLocValue);
+    saved.push(buttonLocValue);
+    localStorage.setItem("saved", JSON.stringify(saved));
     locationInputEl.value = "";
   }
 
@@ -62,7 +70,7 @@ var formSubmitHandler = function(event) {
 var getCurrentWeather = function(lat, lon) {
   var apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=a97605dca80be3bef695a54ff827f901";
   var uvUrl = "https://api.openuv.io/api/v1/uv?lat=" + lat + "&lng=" + lon + "&dt=" + dtISO;
-  var uvApiKey = "c8dab66f174ed1965b2ba6c58f0746e8";
+  var uvApiKey = "0eaa4a70ba9ac515a07057c00da190ea";
 
   fetch(apiUrl).then(function(response) {
     response.json().then(function(data) {
@@ -404,5 +412,6 @@ var savedButtonHandler = function(event) {
   }
 };
 
+loadEvents();
 formEl.addEventListener("submit", formSubmitHandler);
 mainEl.addEventListener("click", savedButtonHandler);
