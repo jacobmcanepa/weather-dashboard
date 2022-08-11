@@ -5,7 +5,9 @@ var formEl = document.querySelector("#form");
 var locationInputEl = document.querySelector("#location");
 var topContainerEl = document.querySelector("#top");
 var bottomContainerEl = document.querySelector("#bottom");
-
+var buttonListEl = document.querySelector("#button-list");
+var mainEl = document.querySelector("main");
+var saved = JSON.parse(localStorage.getItem("saved")) || [];
 
 var getLocationKey = function(location) {
   var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
@@ -37,9 +39,18 @@ var formSubmitHandler = function(event) {
   event.preventDefault();
 
   var location = locationInputEl.value.trim();
+  var locValue = locationInputEl.value
+  var array = locValue.split(" ");
+  
+  for (var i = 0; i < array.length; i++) {
+    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
+  }
+
+  var buttonLocValue = array.join(" ");
 
   if (location) {
     getLocationKey(location);
+    createButton(buttonLocValue);
     locationInputEl.value = "";
   }
 
@@ -135,6 +146,7 @@ var getForecast = function(lat, lon) {
 
   fetch(apiUrl).then(function(response) {
     response.json().then(function(data) {
+      console.log(data);
       bottomContainerEl.innerHTML = "<h3>5 Day Forecast:</h3>";
 
       var rowEl = document.createElement("div");
@@ -358,7 +370,7 @@ var getForecast = function(lat, lon) {
  
       dayFiveDiv.appendChild(dayFiveList);
       rowEl.appendChild(dayFiveDiv);
-      // endday five forecast
+      // end day five forecast
 
       bottomContainerEl.appendChild(rowEl);
     });
@@ -366,6 +378,31 @@ var getForecast = function(lat, lon) {
   .catch(function(error) {
     alert("Unable to connect");
   });
-}
+};
+
+// add code that pushes location name to local storage
+// create load function that iterates through local storage (which will be parsed back onto an array) and creates button for each location
+
+var createButton = function(location) {
+  var listItem = document.createElement("li");
+  listItem.classList = "my-2 list-item";
+  listItem.setAttribute("id", location);
+
+  var buttonEl = document.createElement("button");
+  buttonEl.classList = "col-12 btn btn-secondary saved";
+  buttonEl.textContent = location;
+  listItem.appendChild(buttonEl);
+
+  buttonListEl.appendChild(listItem);
+};
+
+var savedButtonHandler = function(event) {
+  var targetEl = event.target;
+
+  if (targetEl.matches(".saved")) {
+    getLocationKey(targetEl.textContent);
+  }
+};
 
 formEl.addEventListener("submit", formSubmitHandler);
+mainEl.addEventListener("click", savedButtonHandler);
