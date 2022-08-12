@@ -162,15 +162,14 @@ var getForecast = function(lat, lon) {
 
       /* DAY ONE */
       var dayOneDiv = document.createElement("div");
-      dayOneDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
+      dayOneDiv.classList = "col mx-2 text-light weather-bg rounded pb-5";
 
       var dayOneList = document.createElement("ul");
       dayOneList.setAttribute("style", "list-style: none;");
       dayOneList.classList = "pl-0 mt-3";
 
       var dayOneDate = document.createElement("li");
-      dayOneDate.className = "text-bold";
-      dayOneDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 1) + "/" + dt.year + ")</h4>";
+      dayOneDate.innerHTML = "<h4 class='font'>" + dt.month + "/" + (dt.day + 1) + "/" + dt.year + "</h4>";
       dayOneList.appendChild(dayOneDate);
 
       var dayOneIcon = document.createElement("li");
@@ -206,7 +205,7 @@ var getForecast = function(lat, lon) {
 
       /* DAY TWO */
       var dayTwoDiv = document.createElement("div");
-      dayTwoDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
+      dayTwoDiv.classList = "col mx-2 text-light weather-bg rounded pb-3";
 
       var dayTwoList = document.createElement("ul");
       dayTwoList.setAttribute("style", "list-style: none;");
@@ -214,7 +213,7 @@ var getForecast = function(lat, lon) {
 
       var dayTwoDate = document.createElement("li");
       dayTwoDate.className = "text-bold";
-      dayTwoDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 2) + "/" + dt.year + ")</h4>";
+      dayTwoDate.innerHTML = "<h4 class='font'>" + dt.month + "/" + (dt.day + 2) + "/" + dt.year + "</h4>";
       dayTwoList.appendChild(dayTwoDate);
 
       var dayTwoIcon = document.createElement("li");
@@ -250,7 +249,7 @@ var getForecast = function(lat, lon) {
 
       /* DAY THREE */
       var dayThreeDiv = document.createElement("div");
-      dayThreeDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
+      dayThreeDiv.classList = "col mx-2 text-light weather-bg rounded pb-3";
 
       var dayThreeList = document.createElement("ul");
       dayThreeList.classList = "pl-0 mt-3";
@@ -258,7 +257,7 @@ var getForecast = function(lat, lon) {
 
       var dayThreeDate = document.createElement("li");
       dayThreeDate.className = "text-bold";
-      dayThreeDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 3) + "/" + dt.year + ")</h4>";
+      dayThreeDate.innerHTML = "<h4 class='font'>" + dt.month + "/" + (dt.day + 3) + "/" + dt.year + "</h4>";
       dayThreeList.appendChild(dayThreeDate);
 
       var dayThreeIcon = document.createElement("li");
@@ -294,7 +293,7 @@ var getForecast = function(lat, lon) {
 
       /* DAY FOUR */
       var dayFourDiv = document.createElement("div");
-      dayFourDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
+      dayFourDiv.classList = "col mx-2 text-light weather-bg rounded pb-3";
 
       var dayFourList = document.createElement("ul");
       dayFourList.classList = "pl-0 mt-3";
@@ -302,7 +301,7 @@ var getForecast = function(lat, lon) {
 
       var dayFourDate = document.createElement("li");
       dayFourDate.className = "text-bolder";
-      dayFourDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 4) + "/" + dt.year + ")</h4>";
+      dayFourDate.innerHTML = "<h4 class='font'>" + dt.month + "/" + (dt.day + 4) + "/" + dt.year + "</h4>";
       dayFourList.appendChild(dayFourDate);
 
       var dayFourIcon = document.createElement("li");
@@ -338,7 +337,7 @@ var getForecast = function(lat, lon) {
 
       /* DAY FIVE */
       var dayFiveDiv = document.createElement("div");
-      dayFiveDiv.classList = "col mx-2 text-light bg-primary rounded pb-3";
+      dayFiveDiv.classList = "col mx-2 text-light weather-bg rounded pb-3";
 
       var dayFiveList = document.createElement("ul");
       dayFiveList.classList = "pl-0 mt-3";
@@ -346,7 +345,7 @@ var getForecast = function(lat, lon) {
 
       var dayFiveDate = document.createElement("li");
       dayFiveDate.className = "text-bolder";
-      dayFiveDate.innerHTML = "<h4>(" + dt.month + "/" + (dt.day + 5) + "/" + dt.year + ")</h4>";
+      dayFiveDate.innerHTML = "<h4 class='font'>" + dt.month + "/" + (dt.day + 5) + "/" + dt.year + "</h4>";
       dayFiveList.appendChild(dayFiveDate);
 
       var dayFiveIcon = document.createElement("li");
@@ -387,9 +386,6 @@ var getForecast = function(lat, lon) {
     alert("Unable to connect");
   });
 };
-
-// add code that pushes location name to local storage
-// create load function that iterates through local storage (which will be parsed back onto an array) and creates button for each location
 
 var createButton = function(location) {
   var listItem = document.createElement("li");

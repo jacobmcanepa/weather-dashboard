@@ -11,13 +11,13 @@
   <title>Weather Dashboard</title>
 </head>
 <body>
-  <header class="bg-primary text-light d-flex justify-content-center py-2">
+  <header class="header-bg text-light d-flex justify-content-center py-2">
     <h1>Weather Dashboard</h1>
   </header>
 
   <main class="row" id="#main">
     <!-- Search section -->
-    <section class="col-4" id="search-section">
+    <section class="col-3 pr-1" id="search-section">
       <form class="ml-3 mt-3 pb-3 bottom-border" id="form">
         <label for="location"><h2 class="font-weight-bold">Search for a City:</h2></label>
         <input name="location" placeholder="e.g. Los Angeles" type="text" autofocus="true" class="col-12 mb-2 py-2" id="location"/>
@@ -28,10 +28,10 @@
     </section>
 
     <!-- info section -->
-    <section class="col-8" id="info-section">
+    <section class="col-9" id="info-section">
       <div class="container mt-3" id="top"></div>
 
-      <div class="container w-98 mt-3" id="bottom"></div>
+      <div class="container mt-3 pl-2" id="bottom"></div>
     </section>
   </main>
   
