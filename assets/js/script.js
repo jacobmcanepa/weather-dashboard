@@ -45,21 +45,27 @@ var formSubmitHandler = function(event) {
   event.preventDefault();
 
   var location = locationInputEl.value.trim();
-  var locValue = locationInputEl.value
-  var array = locValue.split(" ");
-  
-  for (var i = 0; i < array.length; i++) {
-    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
-  }
-
-  var buttonLocValue = array.join(" ");
 
   if (location) {
+    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
     getLocationKey(location);
-    createButton(buttonLocValue);
-    saved.push(buttonLocValue);
-    localStorage.setItem("saved", JSON.stringify(saved));
     locationInputEl.value = "";
+
+    fetch(apiUrl).then(function(response) {
+      if (response.ok) {
+        response.json().then(function(data) {
+          if (data.length === 0) {
+            return false;
+          } else {
+            createButton(data[0].name);
+            saved.push(data[0].name);
+            localStorage.setItem("saved", JSON.stringify(saved));
+          }
+        });
+      } else {
+        return false;
+      }
+    });
   }
 
   else {
