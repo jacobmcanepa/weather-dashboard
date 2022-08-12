@@ -16,7 +16,7 @@ var loadEvents = function() {
 };
 
 var getLocationKey = function(location) {
-  var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
+  var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
   
   fetch(apiUrl).then(function(response) {
     if (response.ok) {
@@ -47,7 +47,7 @@ var formSubmitHandler = function(event) {
   var location = locationInputEl.value.trim();
 
   if (location) {
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=a97605dca80be3bef695a54ff827f901";
     getLocationKey(location);
     locationInputEl.value = "";
 
@@ -81,7 +81,7 @@ var getCurrentWeather = function(lat, lon) {
   fetch(apiUrl).then(function(response) {
     response.json().then(function(data) {
       console.log(data);
-      var icon = "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+      var icon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
       var rowEl = document.createElement("div");
       rowEl.classList = "row border border-dark w-98";
     
@@ -156,7 +156,7 @@ var getCurrentWeather = function(lat, lon) {
 };
 
 var getForecast = function(lat, lon) {
-  var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=a97605dca80be3bef695a54ff827f901";
+  var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=a97605dca80be3bef695a54ff827f901";
 
   fetch(apiUrl).then(function(response) {
     response.json().then(function(data) {
@@ -186,7 +186,7 @@ var getForecast = function(lat, lon) {
       firstArray.push("d");
       var filteredIcon1 = firstArray.join("");
       // end of filter
-      var icon1 ="http://openweathermap.org/img/wn/" + filteredIcon1 + ".png";
+      var icon1 ="https://openweathermap.org/img/wn/" + filteredIcon1 + ".png";
       dayOneIcon.innerHTML = "<img src='" + icon1 + "' alt='icon' />";
       dayOneList.appendChild(dayOneIcon);
 
@@ -230,7 +230,7 @@ var getForecast = function(lat, lon) {
       secondArray.push("d");
       var filteredIcon2 = secondArray.join("");
       // end of filter
-      var icon2 ="http://openweathermap.org/img/wn/" + filteredIcon2 + ".png";
+      var icon2 ="https://openweathermap.org/img/wn/" + filteredIcon2 + ".png";
       dayTwoIcon.innerHTML = "<img src='" + icon2 + "' alt='icon' />";
       dayTwoList.appendChild(dayTwoIcon);
 
@@ -274,7 +274,7 @@ var getForecast = function(lat, lon) {
       thirdArray.push("d");
       var filteredIcon3 = thirdArray.join("");
       // end of filter
-      var icon3 ="http://openweathermap.org/img/wn/" + filteredIcon3 + ".png";
+      var icon3 ="https://openweathermap.org/img/wn/" + filteredIcon3 + ".png";
       dayThreeIcon.innerHTML = "<img src='" + icon3 + "' alt='icon' />";
       dayThreeList.appendChild(dayThreeIcon);
 
@@ -318,7 +318,7 @@ var getForecast = function(lat, lon) {
       fourthArray.push("d");
       var filteredIcon4 = fourthArray.join("");
       // end of filter
-      var icon4 ="http://openweathermap.org/img/wn/" + filteredIcon4 + ".png";
+      var icon4 ="https://openweathermap.org/img/wn/" + filteredIcon4 + ".png";
       dayFourIcon.innerHTML = "<img src='" + icon4 + "' alt='icon' />";
       dayFourList.appendChild(dayFourIcon);
 
@@ -362,7 +362,7 @@ var getForecast = function(lat, lon) {
       fifthArray.push("d");
       var filteredIcon5 = fifthArray.join("");
       // end of filter
-      var icon5 ="http://openweathermap.org/img/wn/" + filteredIcon5 + ".png";
+      var icon5 ="https://openweathermap.org/img/wn/" + filteredIcon5 + ".png";
       dayFiveIcon.innerHTML = "<img src='" + icon5 + "' alt='icon' />";
       dayFiveList.appendChild(dayFiveIcon);
 
