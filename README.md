@@ -12,6 +12,8 @@ WEATHER DASHBOARD: https://jacobmcanepa.github.io/weather-dashboard/
 
 Just enter a location into the search bar to see the forecast.
 
+![not working](./assets/images/readme-screenshot.png)
+
 ## Questions
 Github: https://github.com/jacobmcanepa
 
